@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+    <script>
+        //Usually, you put script-tags into the head
+        function LED1() {
+            //This performs a POST-Request.
+            //Use "$.get();" in order to perform a GET-Request (you have to take a look in the rest-API-documentation, if you're unsure what you need)
+            //The Browser downloads the webpage from the given url, and returns the data.
+            $.post( "http://10.0.1.69/?2", function( data ) {
+                 //As soon as the browser finished downloading, this function is called.
+                 $('#demo').html(data);
+            });
+        }
+        function LED2() {
+			$.post( "http://10.0.1.69/?3", function( data ) {
+        	$('#demo').html(data);
+            });
+		}        
+		function LED3() {
+			$.post( "http://10.0.1.69/?4", function( data ) {
+        	$('#demo').html(data);
+            });
+		}
+        function LED4() {
+			$.post( "http://10.0.1.69/?5", function( data ) {
+        	$('#demo').html(data);
+            });
+		}
+
+    </script>
+    
+</head>
+<body>
+
+    <p>Click the button to trigger a function.</p>
+
+    <button onclick="LED1()">LED 1</button>
+	<button onclick="LED2()">LED 2</button>
+	<button onclick="LED3()">LED 3</button>
+	<button onclick="LED4()">LED 4</button>
+    <p id="demo"></p>    
+</body>
+</html>
